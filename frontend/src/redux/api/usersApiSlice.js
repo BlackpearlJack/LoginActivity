@@ -4,7 +4,7 @@ import { USERS_URL } from "../features/constants";
 
 export const userApiSlice = apiSlice.injectEndpoints({
     endpoints: (builder) => ({
-        Login: builder.mutation({
+        login: builder.mutation({
             query: (data) => ({
                 url: `${USERS_URL}/auth`,
                 method: 'POST',
@@ -12,13 +12,22 @@ export const userApiSlice = apiSlice.injectEndpoints({
             })
         }),
 
-        Logout: builder.mutation({
+        logout: builder.mutation({
             query: () => ({
                 url: `${USERS_URL}/logout`,
                 method: 'POST'
             }),
-        })
+        }),
+
+        register: builder.mutation({
+            query: (data) => ({
+                url: `${USERS_URL}`,
+                method: 'POST',
+                body: data
+            }),
+        }),
+        
     })
 });
 
-export const { useLoginMutation, useLogoutMutation } = userApiSlice;
+export const { useLoginMutation, useLogoutMutation, useRegisterMutation } = userApiSlice;
