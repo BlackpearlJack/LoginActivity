@@ -11,3 +11,4 @@
 node_modules
 .codebuddy
 .env
+package-lock.json
